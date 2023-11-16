@@ -11,4 +11,6 @@ export const chartTypes = {
 	GuageChart: "量表圖",
 	RadarChart: "雷達圖",
 	HeatmapChart: "熱力圖",
+	PolarAreaChart: "極地圖",
+	BidirectionalBarChart: "雙向圖"
 };

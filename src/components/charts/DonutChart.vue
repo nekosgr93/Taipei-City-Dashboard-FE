@@ -27,6 +27,7 @@ const parsedSeries = computed(() => {
 	output.push(sum);
 	return output;
 });
+
 const parsedLabels = computed(() => {
 	const toParse = [...props.series[0].data];
 	if (toParse.length <= steps.value) {
@@ -39,6 +40,7 @@ const parsedLabels = computed(() => {
 	output.push('其他');
 	return output;
 });
+
 const sum = computed(() => {
 	return Math.round(parsedSeries.value.reduce((a, b) => a + b) * 100) / 100;
 });

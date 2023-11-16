@@ -4077,6 +4077,104 @@
 				"https://github.com/tpe-doit/YouBike-Optimization"
 			],
 			"contributors": ["tuic"]
+		},
+		"148": {
+			"id": 148,
+			"index": "monthly_precipitation",
+			"chart_config": {
+				"types": ["PolarAreaChart"],
+				"color": [
+					"#FFFFCC",
+					"#e7d198",
+					"#d1a26c",
+					"#b9734a",
+					"#9f4333",
+					"#800026"
+				],
+				"unit": "mm"
+			},
+			"name": "每月降雨量",
+			"source": "氣象局",
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+			],
+			"contributors": ["tuic"]
+		},
+		"149": {
+			"id": 149,
+			"index": "pumping_station",
+			"chart_config": {
+				"types": ["ColumnChart"],
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				]
+			},
+			"name": "抽水站狀態",
+			"source": "水利處",
+			"map_config": [
+				{
+					"index": "pumping_station_location",
+					"title": "抽水站位置",
+					"type": "symbol",
+					"icon": "triangle_white",
+					"property": [
+						{ "key": "站名", "name": "站名" },
+						{ "key": "河系", "name": "河系" },
+						{ "key": "行政區域", "name": "行政區域" },
+						{ "key": "建置日期", "name": "建置日期" },
+						{ "key": "管理單位", "name": "管理單位" }
+					]
+				}
+			]
+		},
+		"150": {
+			"id": 150,
+			"index": "evacuation",
+			"name": "疏散門狀態",
+			"chart_config": {
+				"types": ["BidirectionalBarChart"],
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				]
+			},
+			"map_config": [
+				{
+					"index": "evacuation_location",
+					"title": "疏散門位置",
+					"type": "symbol",
+					"icon": "triangle_green",
+					"property": [
+						{ "key": "name", "name": "名稱" },
+						{ "key": "riverside_park", "name": "河濱公園" },
+						{ "key": "description", "name": "位置描述" }
+					]
+				}
+			]
 		}
 	}
 }
