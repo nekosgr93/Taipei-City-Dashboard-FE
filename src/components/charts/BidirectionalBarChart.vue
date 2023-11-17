@@ -38,9 +38,18 @@ const chartOptions = ref({
 		categories: props.chart_config.categories,
 	},
 	yaxis: {
-              min: -5,
-              max: 5,
-            },
+		min: -5,
+		max: 5,
+	},
+	tooltip: {
+		custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+			return '<div class="chart-tooltip">' +
+				'<h6>' + w.globals.labels[dataPointIndex] + '</h6>' +
+				'<span>' + series[seriesIndex][dataPointIndex] + ` ${props.chart_config.unit}` + '</span>' +
+				'</div>';
+		},
+		followCursor: true,
+	},
 });
 </script>
 

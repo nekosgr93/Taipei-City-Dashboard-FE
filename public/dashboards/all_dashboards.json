@@ -69,14 +69,15 @@
 				"9",
 				"16",
 				"30",
-				"106"
+				"106",
+				"152"
 			],
 			"icon": "public"
 		},
 		{
 			"name": "韌性水城市",
 			"index": "flood-control",
-			"components": ["148", "149", "150"],
+			"components": ["148", "149", "150", "151"],
 			"icon": "water_drop"
 		},
 		{

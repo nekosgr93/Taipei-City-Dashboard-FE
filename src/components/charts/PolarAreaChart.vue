@@ -22,6 +22,16 @@ const chartOptions = ref({
 		opacity: 0.8,
 	},
 	labels: props.series[0].data.map(d => d.x),
+	tooltip: {
+		followCursor: false,
+		custom: function ({ series, seriesIndex, w }) {
+			// The class "chart-tooltip" could be edited in /assets/styles/chartStyles.css
+			return '<div class="chart-tooltip">' +
+				'<h6>' + w.globals.labels[seriesIndex] + '</h6>' +
+				'<span>' + series[seriesIndex] + ` ${props.chart_config.unit}` + '</span>' +
+				'</div>';
+		},
+	},
 	responsive: [
 		{
 			breakpoint: 480,

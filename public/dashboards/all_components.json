@@ -4099,8 +4099,7 @@
 			"long_desc": "",
 			"use_case": "",
 			"tags": [],
-			"links": [
-			],
+			"links": [],
 			"contributors": ["tuic"]
 		},
 		"149": {
@@ -4121,10 +4120,11 @@
 					"萬華區",
 					"大安區",
 					"文山區"
-				]
+				],
+				"unit": "站"
 			},
 			"name": "抽水站狀態",
-			"source": "水利處",
+			"source": "工務局水利處",
 			"map_config": [
 				{
 					"index": "pumping_station_location",
@@ -4139,12 +4139,19 @@
 						{ "key": "管理單位", "name": "管理單位" }
 					]
 				}
+			],
+			"update_freq": 1,
+			"update_freq_unit": "hour",
+			"links": [
+				"https://data.taipei/dataset/detail?id=026cc0fa-cecc-4c78-b986-ead3b0c8b95b",
+				"https://data.taipei/dataset/detail?id=2bbfb30e-de58-43bd-9cc9-b56e9a6b5369"
 			]
 		},
 		"150": {
 			"id": 150,
 			"index": "evacuation",
 			"name": "疏散門狀態",
+			"source": "工務局水利處",
 			"chart_config": {
 				"types": ["BidirectionalBarChart"],
 				"categories": [
@@ -4160,7 +4167,8 @@
 					"萬華區",
 					"大安區",
 					"文山區"
-				]
+				],
+				"unit": "門"
 			},
 			"map_config": [
 				{
@@ -4173,6 +4181,150 @@
 						{ "key": "riverside_park", "name": "河濱公園" },
 						{ "key": "description", "name": "位置描述" }
 					]
+				}
+			],
+			"links": [
+				"https://data.taipei/dataset/detail?id=443dc687-92b6-4ffd-8dc0-23738437b571",
+				"https://data.taipei/dataset/detail?id=cc3f7e86-77ec-4bd3-a09f-05b175e192f5"
+			],
+			"update_freq": 10,
+			"update_freq_unit": "minute"
+		},
+		"151": {
+			"id": 151,
+			"index": "permeable-paving",
+			"name": "透水地面分布",
+			"source": "工務局",
+			"chart_config": {
+				"types": ["TreemapChart"],
+				"unit": "平方公尺",
+				"color": ["#61a5ed", "#4e94de", "#3587de", "#135dab"],
+				"map_filter": ["類別", ["停車場", "公園", "學校", "人行道"]]
+			},
+			"links": [
+				"https://data.taipei/dataset/detail?id=5b277432-f534-4d09-a24c-d3f6b514e042"
+			],
+			"map_config": [
+				{
+					"index": "permeable_paving",
+					"title": "透水地面",
+					"type": "fill",
+					"paint": {
+						"fill-color": [
+							"match",
+							["get", "類別"],
+							"停車場",
+							"#005CAF",
+							"公園",
+							"#227D51",
+							"學校",
+							"#F9BF45",
+							"人行道",
+							"#FCFAF2",
+							"#FCFAF2"
+						]
+					}
+				}
+			]
+		},
+		"152": {
+			"id": 152,
+			"index": "potential-inundation",
+			"name": "淹水潛勢圖",
+			"map_config": [
+				{
+					"index": "potential-inundation",
+					"title": "可能淹水範圍",
+					"type": "fill",
+					"paint": {
+						"fill-color": [
+							"match",
+							["get", "id"],
+							"ID_00001",
+							"#86cf9a",
+							"ID_00002",
+							"#6db37f",
+							"ID_00003",
+							"#498258",
+							"ID_00101",
+							"#83a4d6",
+							"ID_00102",
+							"#6386ba",
+							"ID_00103",
+							"#28497a",
+							"ID_00201",
+							"#decb6a",
+							"ID_00202",
+							"#c7b458",
+							"ID_00203",
+							"#bda428",
+							"#bda428"
+						]
+					}
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"],
+				"map_filter": [
+					"id",
+					[
+						"ID_00001",
+						"ID_00002",
+						"ID_00003",
+						"ID_00101",
+						"ID_00102",
+						"ID_00103",
+						"ID_00201",
+						"ID_00202",
+						"ID_00203"
+					]
+				]
+			},
+			"chart_data": [
+				{
+					"type": "fill",
+					"name": "78.8mm/h(0.15m~0.30m)",
+					"color": "#86cf9a"
+				},
+				{
+					"type": "fill",
+					"name": "78.8mm/h(0.30m~1.0m)",
+					"color": "#6db37f"
+				},
+				{
+					"type": "fill",
+					"name": "78.8mm/h(1.0m~2.0m)",
+					"color": "#498258"
+				},
+				{
+					"type": "fill",
+					"name": "100mm/h(0.15~0.30m)",
+					"color": "#83a4d6"
+				},
+				{
+					"type": "fill",
+					"name": "100mm/h(0.30m~1.0m",
+					"color": "#6386ba"
+				},
+				{
+					"type": "fill",
+					"name": "100mm/h(1.0m~2.0m)",
+					"color": "#28497a"
+				},
+				{
+					"type": "fill",
+					"name": "130mm/h(0.15m~0.3m)",
+					"color": "#decb6a"
+				},
+				{
+					"type": "fill",
+					"name": "130mm/h(0.3m~1.0m)",
+					"color": "#c7b458"
+				},
+				{
+					"type": "fill",
+					"name": "130mm/h(1.0m~2.0m)",
+					"color": "#bda428"
 				}
 			]
 		}
