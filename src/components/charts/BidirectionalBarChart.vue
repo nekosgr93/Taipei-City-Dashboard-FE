@@ -37,10 +37,6 @@ const chartOptions = ref({
 	xaxis: {
 		categories: props.chart_config.categories,
 	},
-	yaxis: {
-		min: -5,
-		max: 5,
-	},
 	tooltip: {
 		custom: function ({ series, seriesIndex, dataPointIndex, w }) {
 			return '<div class="chart-tooltip">' +

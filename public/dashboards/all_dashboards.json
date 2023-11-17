@@ -83,7 +83,7 @@
 		{
 			"name": "友善生育",
 			"index": "pregnant-friendly",
-			"components": [],
+			"components": ["153", "154", "155"],
 			"icon": "pregnant_woman"
 		}
 	]

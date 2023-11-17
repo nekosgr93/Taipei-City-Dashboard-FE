@@ -4327,6 +4327,95 @@
 					"color": "#bda428"
 				}
 			]
+		},
+		"153": {
+			"id": 153,
+			"index": "daycare-station",
+			"name": "托育中心",
+			"source": "社會局",
+			"chart_config": {
+				"types": ["TreemapChart"],
+				"map_filter": [
+					"機構類型",
+					[
+						"居家托育服務中心",
+						"社區公共托育家園"
+					]
+				],
+				"unit": "處"
+			},
+			"map_config": [
+				{
+					"index": "daycare-station",
+					"type": "symbol",
+					"title": "托育中心",
+					"icon": "triangle_green",
+					"property": [
+						{ "key": "機構類型", "name": "機構類型" },
+						{ "key": "機構名稱", "name": "機構名稱" },
+						{ "key": "地址", "name": "地址" },
+						{ "key": "電話", "name": "電話" }
+					]
+				}
+			],
+			"links": [
+				"https://data.taipei/dataset/detail?id=41c729ce-c848-492a-b7a6-db468f06c17c",
+				"https://data.taipei/dataset/detail?id=7c66efcd-d073-401c-b18a-7a46728776c4"
+			],
+			"update_freq": 1,
+			"update_freq_unit": "month"
+		},
+		"154": {
+			"id": 154,
+			"index": "newborn-statistics",
+			"name": "新生兒統計",
+			"source": "民政局",
+			"links": [
+				"https://ca.gov.taipei/News_Content.aspx?n=8693DC9620A1AABF&sms=D19E9582624D83CB&s=78DC4B104D9D374E"
+			],
+			"chart_config": {
+				"types": ["BidirectionalBarChart"],
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"unit": "人"
+			}
+		},
+		"155": {
+			"id": 155,
+			"index": "psychological-counseling-station",
+			"name": "心理諮詢處",
+			"source": "衛生局",
+			"chart_config": {
+				"types": ["BarChart", "DistrictChart"],
+				"unit": "處",
+				"color": ["#6baef2"]
+			},
+			"map_config": [
+				{
+					"index": "psychological-counseling-station",
+					"type": "symbol",
+					"icon": "triangle_white",
+					"title": "心理諮詢機構",
+					"property": [
+						{ "key": "機構類型", "name": "機構類型" },
+						{ "key": "機構名稱", "name": "機構名稱" },
+						{ "key": "地址", "name": "地址" },
+						{ "key": "電話", "name": "電話" }
+					]
+				}
+			]
 		}
 	}
 }
