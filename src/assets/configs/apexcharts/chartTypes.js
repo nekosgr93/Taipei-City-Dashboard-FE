@@ -12,5 +12,6 @@ export const chartTypes = {
 	RadarChart: "雷達圖",
 	HeatmapChart: "熱力圖",
 	PolarAreaChart: "極地圖",
-	BidirectionalBarChart: "雙向圖"
+	BidirectionalBarChart: "旋風圖",
+	TotalDonutChart: "綜合圓餅圖"
 };

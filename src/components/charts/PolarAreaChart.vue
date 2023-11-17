@@ -80,7 +80,7 @@ function handleDataSelection(e, chartContext, config) {
 </script>
 
 <template>
-	<div>
+	<div v-if="activeChart === 'PolarAreaChart'">
 		<apexchart
 			type="polarArea"
 			:options="chartOptions"

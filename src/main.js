@@ -36,6 +36,8 @@ import MetroChart from "./components/charts/MetroChart.vue";
 import HeatmapChart from "./components/charts/HeatmapChart.vue";
 import PolarAreaChart from "./components/charts/PolarAreaChart.vue"
 import BidirectionalBarChart from './components/charts/BidirectionalBarChart.vue'
+import TotalDonutChart from './components/charts/TotalDonutChart.vue'
+
 
 const app = createApp(App);
 
@@ -60,5 +62,6 @@ app.component("MetroChart", MetroChart);
 app.component("HeatmapChart", HeatmapChart);
 app.component("PolarAreaChart", PolarAreaChart)
 app.component("BidirectionalBarChart", BidirectionalBarChart)
+app.component("TotalDonutChart", TotalDonutChart)
 
 app.mount("#app");

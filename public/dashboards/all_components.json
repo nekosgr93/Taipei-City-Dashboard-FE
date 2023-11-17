@@ -4095,12 +4095,7 @@
 			},
 			"name": "每月降雨量",
 			"source": "氣象局",
-			"short_desc": "",
-			"long_desc": "",
-			"use_case": "",
-			"tags": [],
-			"links": [],
-			"contributors": ["tuic"]
+			"history_data": true
 		},
 		"149": {
 			"id": 149,
@@ -4121,9 +4116,26 @@
 					"大安區",
 					"文山區"
 				],
-				"unit": "站"
+				"unit": "站",
+				"map_filter": [
+					"行政區域",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
 			},
-			"name": "抽水站狀態",
+			"name": "抽水站點位",
 			"source": "工務局水利處",
 			"map_config": [
 				{
@@ -4153,7 +4165,7 @@
 			"name": "疏散門狀態",
 			"source": "工務局水利處",
 			"chart_config": {
-				"types": ["BidirectionalBarChart"],
+				"types": ["BidirectionalBarChart", "TotalDonutChart"],
 				"categories": [
 					"北投區",
 					"士林區",
@@ -4337,10 +4349,7 @@
 				"types": ["TreemapChart"],
 				"map_filter": [
 					"機構類型",
-					[
-						"居家托育服務中心",
-						"社區公共托育家園"
-					]
+					["居家托育服務中心", "社區公共托育家園"]
 				],
 				"unit": "處"
 			},
@@ -4367,8 +4376,8 @@
 		},
 		"154": {
 			"id": 154,
-			"index": "newborn-statistics",
-			"name": "新生兒統計",
+			"index": "newborn-sex-statistics",
+			"name": "新生兒統計(男女)",
 			"source": "民政局",
 			"links": [
 				"https://ca.gov.taipei/News_Content.aspx?n=8693DC9620A1AABF&sms=D19E9582624D83CB&s=78DC4B104D9D374E"
@@ -4416,6 +4425,18 @@
 					]
 				}
 			]
+		},
+		"156": {
+			"id": 156,
+			"index": "newborn-district-statistics",
+			"name": "新生兒統計(行政區)",
+			"source": "民政局",
+			"chart_config": {
+				"types": ["ColumnChart"],
+				"unit": "人"
+			},
+			"update_freq": 1,
+			"update_freq_unit": "month"
 		}
 	}
 }
