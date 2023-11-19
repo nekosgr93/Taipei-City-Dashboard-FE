@@ -4178,7 +4178,17 @@
 					"index": "newborn_district",
 					"type": "fill",
 					"title": "新生兒分布",
-					"property": [{ "key": "total", "name": "新生人口" }]
+					"property": [{ "key": "total", "name": "新生人口" }],
+					"paint": {
+						"fill-color": [
+							"case",
+							["<", ["get", "total"], 1000],
+							"#FFB896",
+							[">", ["get", "total"], 1500],
+							"#EC2020",
+							"#507da1"
+						]
+					}
 				}
 			],
 			"long_desc": "顯示臺北市各行政區新生兒男女人數統計，資料來源為臺北市民政局開放資料取得。",
@@ -4195,7 +4205,24 @@
 			"chart_config": {
 				"types": ["BarChart", "DistrictChart"],
 				"unit": "處",
-				"color": ["#FBAB69"]
+				"color": ["#FBAB69"],
+				"map_filter": [
+					"行政區",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
 			},
 			"map_config": [
 				{
@@ -4224,7 +4251,7 @@
 			"chart_config": {
 				"types": ["MixedChart"],
 				"group": "fertility-rate",
-				"color": ["#C5E0B4", "#3EA04A", "#3EA04A"],
+				"color": ["#C5E0B4", "#3EA04A"],
 				"chart_type": {
 					"總生育率": "column",
 					"育齡婦女一般生育率": "column",
