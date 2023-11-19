@@ -145,12 +145,14 @@ export const useMapStore = defineStore("map", {
 				) {
 					this.loadingLayers.push("rendering");
 					this.turnOnMapLayerVisibility(mapLayerId);
+
 					if (
 						!this.currentVisibleLayers.find(
 							(element) => element === mapLayerId
 						)
 					) {
 						this.currentVisibleLayers.push(mapLayerId);
+
 					}
 					return;
 				}
@@ -240,7 +242,7 @@ export const useMapStore = defineStore("map", {
 		},
 
 		addClusterLayer(map_config) {
-			const { type: _, ...restConfig } = map_config
+			const { type: _, ...restConfig } = map_config;
 			this.loadingLayers.push("rendering");
 
 			this.map.addLayer({
@@ -265,7 +267,7 @@ export const useMapStore = defineStore("map", {
 			this.map.addLayer({
 				id: `${map_config.layerId}-unclustered-point`,
 				type: 'circle',
-				source: 'earthquakes',
+				source: `${map_config.layerId}-source`,
 				filter: ['!', ['has', 'point_count']],
 				paint: {
 					'circle-color': '#11b4da',
@@ -274,6 +276,7 @@ export const useMapStore = defineStore("map", {
 					'circle-stroke-color': '#fff'
 				}
 			});
+
 			this.currentLayers.push(map_config.layerId);
 			this.mapConfigs[map_config.layerId] = map_config;
 			this.currentVisibleLayers.push(map_config.layerId);
@@ -373,10 +376,12 @@ export const useMapStore = defineStore("map", {
 				);
 			}, delay);
 		},
-		//  5. Turn on the visibility for a exisiting map layer
+		// 5. Turn on the visibility for an existing map layer
 		turnOnMapLayerVisibility(mapLayerId) {
 			this.map.setLayoutProperty(mapLayerId, "visibility", "visible");
 		},
+
+
 		// 6. Turn off the visibility of an exisiting map layer but don't remove it completely
 		turnOffMapLayerVisibility(map_config) {
 			map_config.forEach((element) => {
@@ -393,14 +398,18 @@ export const useMapStore = defineStore("map", {
 						"none"
 					);
 				}
-				if (this.element.type === 'cluster') {
+
+
+				if (element.type === 'cluster') {
 					[`${mapLayerId}-cluster-count`, `${mapLayerId}-unclustered-point`].forEach(e => {
-						this.map.setFilter(e, null);
-						this.map.setLayoutProperty(
-							e,
-							"visibility",
-							"none"
-						);
+						if (this.map.getLayer(e)) {
+							this.map.setFilter(e, null);
+							this.map.setLayoutProperty(
+								e,
+								"visibility",
+								"none"
+							);
+						}
 					})
 				}
 

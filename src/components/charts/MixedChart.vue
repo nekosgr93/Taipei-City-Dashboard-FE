@@ -21,7 +21,6 @@ const chartOptions = ref({
 		type: "line",
 		stacked: false,
 	},
-	colors: props.chart_config.color,
 	dataLabels: {
 		enabled: false,
 	},
@@ -38,6 +37,7 @@ const chartOptions = ref({
 	},
 	yaxis: props.series.map((s, i) => ({
 		opposite: i !== 0,
+		seriesName: s.name,
 		axisTicks: {
 			show: true,
 		},
@@ -64,7 +64,7 @@ const chartOptions = ref({
 		custom: function ({ series, seriesIndex, dataPointIndex, w }) {
 			return '<div class="chart-tooltip">' +
 				'<h6>' + w.globals.labels[dataPointIndex] + `${props.chart_config.categories ? '-' + w.globals.seriesNames[seriesIndex] : ''}` + '</h6>' +
-				'<span>' + series[seriesIndex][dataPointIndex] + ` ${props.chart_config.unit}` + '</span>' +
+				'<span>' + (series[seriesIndex][dataPointIndex]).toFixed(2) + ` ${props.chart_config.unit}` + '</span>' +
 				'</div>';
 		},
 	},

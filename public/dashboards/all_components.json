@@ -4082,7 +4082,7 @@
 			"id": 153,
 			"index": "daycare-station",
 			"name": "托育中心",
-			"source": "社會局",
+			"source": "gov.taipei",
 			"chart_config": {
 				"types": ["ColumnChart"],
 				"map_filter": [
@@ -4141,20 +4141,18 @@
 				}
 			],
 			"links": [
-				"https://data.taipei/dataset/detail?id=41c729ce-c848-492a-b7a6-db468f06c17c",
-				"https://data.taipei/dataset/detail?id=7c66efcd-d073-401c-b18a-7a46728776c4"
+				"https://map.dosw.gov.taipei/taipeiwelfare_map/all_new/baby_map.aspx"
 			],
 			"update_freq": 1,
-			"update_freq_unit": "month"
+			"update_freq_unit": "month",
+			"long_desc": "顯示臺北市各行政區中有的各類托育中心收托人數，資料來源為臺北市嬰幼兒托育地圖爬蟲取得。",
+			"use_case": "透過收托人數的統計資訊，可以迅速瞭解各行政區托育量能，也可了解行政區中公私立托育中心托育數量，以期提供社會局進行現有托育中心設置數量之參考。"
 		},
 		"154": {
 			"id": 154,
 			"index": "newborn-sex-statistics",
 			"name": "新生兒統計(男女)",
 			"source": "民政局",
-			"links": [
-				"https://ca.gov.taipei/News_Content.aspx?n=8693DC9620A1AABF&sms=D19E9582624D83CB&s=78DC4B104D9D374E"
-			],
 			"chart_config": {
 				"types": ["BidirectionalBarChart"],
 				"categories": [
@@ -4171,7 +4169,7 @@
 					"大安區",
 					"文山區"
 				],
-				"color": ["#BDD7EE", "#E9BDCF"],
+				"color": ["#7DD5FF", "#FF82C3"],
 				"unit": "人"
 			},
 			"history_data": true,
@@ -4182,6 +4180,11 @@
 					"title": "新生兒分布",
 					"property": [{ "key": "total", "name": "新生人口" }]
 				}
+			],
+			"long_desc": "顯示臺北市各行政區新生兒男女人數統計，資料來源為臺北市民政局開放資料取得。",
+			"use_case": "近年來臺北市新生兒男女比例失衡問題日漸嚴重，本組件以此議題為出發點，希望透過檢視各行政區新生兒出生數量多寡，以及男女比例，作為檢視生育與未來性別政策之參考。",
+			"links": [
+				"https://ca.gov.taipei/News_Content.aspx?n=8693DC9620A1AABF&sms=D19E9582624D83CB&s=78DC4B104D9D374E"
 			]
 		},
 		"155": {
@@ -4207,6 +4210,11 @@
 						{ "key": "電話", "name": "電話" }
 					]
 				}
+			],
+			"long_desc": "顯示臺北市各行政區提供心理諮詢的場所，資料來源為臺北市資料平台臺北市心理所資料。",
+			"use_case": "我們檢視目前的育兒政策，大多都以新生兒的照護為主體，但根據數據統計，產婦遭遇產後憂鬱的比例將近20%，再度復發的比例為20%至30%，同時我們注意到桃園已做了孕婦心理照護的政策，這是台北目前可以借鑑的一點。因此我們希望以孕婦為主體，盤點心理諮詢資源的分布狀況。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=2c2b4b96-2829-4de5-8bcc-655bea9a96ff"
 			]
 		},
 		"157": {
@@ -4216,7 +4224,7 @@
 			"chart_config": {
 				"types": ["MixedChart"],
 				"group": "fertility-rate",
-				"color": ["#C5E1A5", "#ADED64", "#7BB661"],
+				"color": ["#C5E0B4", "#3EA04A", "#3EA04A"],
 				"chart_type": {
 					"總生育率": "column",
 					"育齡婦女一般生育率": "column",
@@ -4237,23 +4245,34 @@
 					"112年"
 				],
 				"unit": ""
-			}
+			},
+			"long_desc": "顯示台北市總生育率和物價指數變化趨勢，格式為總生育率和物價指數。資料來源為主計處公開資料，每1年更新。",
+			"use_case": "藉由比對台北市每年度之總生育率和物價指數變化趨勢，概觀整體經濟環境對居民生育意願之影響程度。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=9fb2914a-7934-45a2-9a47-99873ea5e4f4",
+				"https://www.stat.gov.tw/cp.aspx?n=2665"
+			],
+			"source": "主計處"
 		},
 		"158": {
 			"id": 158,
 			"index": "newborn-quit",
 			"name": "因生育而離職之變化率",
-			"source": "",
+			"source": "統計資訊網",
 			"chart_config": {
 				"types": ["TimelineStackedChart"],
-				"unit": "%"
-			}
+				"unit": "%",
+				"color": ["#8FAADC", "#D6DCE5", "#4472C4"]
+			},
+			"long_desc": "顯示全國婦女因生育對其在職場產生的影響，格式為未恢復工作、曾恢復工作，以及以恢復工作之百分比。資料來源為主計處公開資料，每1年更新。",
+			"use_case": "藉由檢視全國婦女因生育(懷孕)而影響其就職的變化趨勢，概觀生育對婦女就業之影響程度，作為婦女就職相關政策擬定之參考依據。",
+			"links": ["https://www.stat.gov.tw/cp.aspx?n=2804"]
 		},
 		"159": {
 			"id": 159,
 			"index": "district-cost",
 			"name": "托育中心費用級距",
-			"source": "",
+			"source": "gov.taipei",
 			"chart_config": {
 				"types": ["StackBarChart"],
 				"categories": [
@@ -4272,16 +4291,23 @@
 				],
 				"unit": "間",
 				"dataLabels": {},
-				"color": ["#FFFFCC",
-				"#e7d198",
-				"#d1a26c",
-				"#b9734a",
-				"#9f4333",
-				"#800026"],
+				"color": [
+					"#FFFFCC",
+					"#e7d198",
+					"#d1a26c",
+					"#b9734a",
+					"#9f4333",
+					"#800026"
+				],
 				"legend": {
 					"show": true
 				}
-			}
+			},
+			"long_desc": "顯示台北市各行政區之托育中心等機構收費級距統計，格式為行政區和各機構收費級距統計總數。資料來源為臺北市嬰幼兒托育地圖公開資料，不定期更新。",
+			"use_case": "藉由總覽各行政區之托育中心總數並依據其收費級距進行統計，概觀臺北市之托育中心供給現況，掌握全市托育資源分布。",
+			"links": [
+				"https://map.dosw.gov.taipei/taipeiWelfare_map/all_new/baby_map.aspx"
+			]
 		}
 	}
 }
