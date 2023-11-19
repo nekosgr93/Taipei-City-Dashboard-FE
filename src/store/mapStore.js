@@ -175,9 +175,12 @@ export const useMapStore = defineStore("map", {
 			this.map.addSource(`${map_config.layerId}-source`, {
 				type: "geojson",
 				data: { ...data },
+				...map_config.cluster
 			});
 			if (map_config.type === "arc") {
 				this.AddArcMapLayer(map_config, data);
+			} else if (map_config.type === 'cluster') {
+				this.addClusterLayer(map_config)
 			} else {
 				this.addMapLayer(map_config);
 			}
@@ -190,12 +193,12 @@ export const useMapStore = defineStore("map", {
 			if (map_config.icon) {
 				extra_paint_configs = {
 					...maplayerCommonPaint[
-						`${map_config.type}-${map_config.icon}`
+					`${map_config.type}-${map_config.icon}`
 					],
 				};
 				extra_layout_configs = {
 					...maplayerCommonLayout[
-						`${map_config.type}-${map_config.icon}`
+					`${map_config.type}-${map_config.icon}`
 					],
 				};
 			}
@@ -203,13 +206,13 @@ export const useMapStore = defineStore("map", {
 				extra_paint_configs = {
 					...extra_paint_configs,
 					...maplayerCommonPaint[
-						`${map_config.type}-${map_config.size}`
+					`${map_config.type}-${map_config.size}`
 					],
 				};
 				extra_layout_configs = {
 					...extra_layout_configs,
 					...maplayerCommonLayout[
-						`${map_config.type}-${map_config.size}`
+					`${map_config.type}-${map_config.size}`
 					],
 				};
 			}
@@ -227,6 +230,49 @@ export const useMapStore = defineStore("map", {
 					...extra_layout_configs,
 				},
 				source: `${map_config.layerId}-source`,
+			});
+			this.currentLayers.push(map_config.layerId);
+			this.mapConfigs[map_config.layerId] = map_config;
+			this.currentVisibleLayers.push(map_config.layerId);
+			this.loadingLayers = this.loadingLayers.filter(
+				(el) => el !== map_config.layerId
+			);
+		},
+
+		addClusterLayer(map_config) {
+			const { type: _, ...restConfig } = map_config
+			this.loadingLayers.push("rendering");
+
+			this.map.addLayer({
+				id: map_config.layerId,
+				type: 'circle',
+				source: `${map_config.layerId}-source`,
+				...restConfig
+			});
+
+			this.map.addLayer({
+				id: `${map_config.layerId}-cluster-count`,
+				type: 'symbol',
+				source: `${map_config.layerId}-source`,
+				filter: ['has', 'point_count'],
+				layout: {
+					'text-field': ['get', 'point_count_abbreviated'],
+					'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+					'text-size': 12
+				}
+			});
+
+			this.map.addLayer({
+				id: `${map_config.layerId}-unclustered-point`,
+				type: 'circle',
+				source: 'earthquakes',
+				filter: ['!', ['has', 'point_count']],
+				paint: {
+					'circle-color': '#11b4da',
+					'circle-radius': 4,
+					'circle-stroke-width': 1,
+					'circle-stroke-color': '#fff'
+				}
 			});
 			this.currentLayers.push(map_config.layerId);
 			this.mapConfigs[map_config.layerId] = map_config;
@@ -303,7 +349,7 @@ export const useMapStore = defineStore("map", {
 									: 2,
 								opacity:
 									paintSettings["arc-opacity"] ||
-									paintSettings["arc-opacity"] === 0
+										paintSettings["arc-opacity"] === 0
 										? paintSettings["arc-opacity"]
 										: 0.5,
 							};
@@ -347,6 +393,17 @@ export const useMapStore = defineStore("map", {
 						"none"
 					);
 				}
+				if (this.element.type === 'cluster') {
+					[`${mapLayerId}-cluster-count`, `${mapLayerId}-unclustered-point`].forEach(e => {
+						this.map.setFilter(e, null);
+						this.map.setLayoutProperty(
+							e,
+							"visibility",
+							"none"
+						);
+					})
+				}
+
 				this.currentVisibleLayers = this.currentVisibleLayers.filter(
 					(element) => element !== mapLayerId
 				);

@@ -4078,285 +4078,38 @@
 			],
 			"contributors": ["tuic"]
 		},
-		"148": {
-			"id": 148,
-			"index": "monthly_precipitation",
-			"chart_config": {
-				"types": ["PolarAreaChart"],
-				"color": [
-					"#FFFFCC",
-					"#e7d198",
-					"#d1a26c",
-					"#b9734a",
-					"#9f4333",
-					"#800026"
-				],
-				"unit": "mm"
-			},
-			"name": "每月降雨量",
-			"source": "氣象局",
-			"history_data": true
-		},
-		"149": {
-			"id": 149,
-			"index": "pumping_station",
-			"chart_config": {
-				"types": ["ColumnChart"],
-				"categories": [
-					"北投區",
-					"士林區",
-					"內湖區",
-					"南港區",
-					"松山區",
-					"信義區",
-					"中山區",
-					"大同區",
-					"中正區",
-					"萬華區",
-					"大安區",
-					"文山區"
-				],
-				"unit": "站",
-				"map_filter": [
-					"行政區域",
-					[
-						"北投區",
-						"士林區",
-						"內湖區",
-						"南港區",
-						"松山區",
-						"信義區",
-						"中山區",
-						"大同區",
-						"中正區",
-						"萬華區",
-						"大安區",
-						"文山區"
-					]
-				]
-			},
-			"name": "抽水站點位",
-			"source": "工務局水利處",
-			"map_config": [
-				{
-					"index": "pumping_station_location",
-					"title": "抽水站位置",
-					"type": "symbol",
-					"icon": "triangle_white",
-					"property": [
-						{ "key": "站名", "name": "站名" },
-						{ "key": "河系", "name": "河系" },
-						{ "key": "行政區域", "name": "行政區域" },
-						{ "key": "建置日期", "name": "建置日期" },
-						{ "key": "管理單位", "name": "管理單位" }
-					]
-				}
-			],
-			"update_freq": 1,
-			"update_freq_unit": "hour",
-			"links": [
-				"https://data.taipei/dataset/detail?id=026cc0fa-cecc-4c78-b986-ead3b0c8b95b",
-				"https://data.taipei/dataset/detail?id=2bbfb30e-de58-43bd-9cc9-b56e9a6b5369"
-			]
-		},
-		"150": {
-			"id": 150,
-			"index": "evacuation",
-			"name": "疏散門狀態",
-			"source": "工務局水利處",
-			"chart_config": {
-				"types": ["BidirectionalBarChart", "TotalDonutChart"],
-				"categories": [
-					"北投區",
-					"士林區",
-					"內湖區",
-					"南港區",
-					"松山區",
-					"信義區",
-					"中山區",
-					"大同區",
-					"中正區",
-					"萬華區",
-					"大安區",
-					"文山區"
-				],
-				"unit": "門"
-			},
-			"map_config": [
-				{
-					"index": "evacuation_location",
-					"title": "疏散門位置",
-					"type": "symbol",
-					"icon": "triangle_green",
-					"property": [
-						{ "key": "name", "name": "名稱" },
-						{ "key": "riverside_park", "name": "河濱公園" },
-						{ "key": "description", "name": "位置描述" }
-					]
-				}
-			],
-			"links": [
-				"https://data.taipei/dataset/detail?id=443dc687-92b6-4ffd-8dc0-23738437b571",
-				"https://data.taipei/dataset/detail?id=cc3f7e86-77ec-4bd3-a09f-05b175e192f5"
-			],
-			"update_freq": 10,
-			"update_freq_unit": "minute"
-		},
-		"151": {
-			"id": 151,
-			"index": "permeable-paving",
-			"name": "透水地面分布",
-			"source": "工務局",
-			"chart_config": {
-				"types": ["TreemapChart"],
-				"unit": "平方公尺",
-				"color": ["#61a5ed", "#4e94de", "#3587de", "#135dab"],
-				"map_filter": ["類別", ["停車場", "公園", "學校", "人行道"]]
-			},
-			"links": [
-				"https://data.taipei/dataset/detail?id=5b277432-f534-4d09-a24c-d3f6b514e042"
-			],
-			"map_config": [
-				{
-					"index": "permeable_paving",
-					"title": "透水地面",
-					"type": "fill",
-					"paint": {
-						"fill-color": [
-							"match",
-							["get", "類別"],
-							"停車場",
-							"#005CAF",
-							"公園",
-							"#227D51",
-							"學校",
-							"#F9BF45",
-							"人行道",
-							"#FCFAF2",
-							"#FCFAF2"
-						]
-					}
-				}
-			]
-		},
-		"152": {
-			"id": 152,
-			"index": "potential-inundation",
-			"name": "淹水潛勢圖",
-			"map_config": [
-				{
-					"index": "potential-inundation",
-					"title": "可能淹水範圍",
-					"type": "fill",
-					"paint": {
-						"fill-color": [
-							"match",
-							["get", "id"],
-							"ID_00001",
-							"#86cf9a",
-							"ID_00002",
-							"#6db37f",
-							"ID_00003",
-							"#498258",
-							"ID_00101",
-							"#83a4d6",
-							"ID_00102",
-							"#6386ba",
-							"ID_00103",
-							"#28497a",
-							"ID_00201",
-							"#decb6a",
-							"ID_00202",
-							"#c7b458",
-							"ID_00203",
-							"#bda428",
-							"#bda428"
-						]
-					}
-				}
-			],
-			"chart_config": {
-				"types": ["MapLegend"],
-				"map_filter": [
-					"id",
-					[
-						"ID_00001",
-						"ID_00002",
-						"ID_00003",
-						"ID_00101",
-						"ID_00102",
-						"ID_00103",
-						"ID_00201",
-						"ID_00202",
-						"ID_00203"
-					]
-				]
-			},
-			"chart_data": [
-				{
-					"type": "fill",
-					"name": "78.8mm/h(0.15m~0.30m)",
-					"color": "#86cf9a"
-				},
-				{
-					"type": "fill",
-					"name": "78.8mm/h(0.30m~1.0m)",
-					"color": "#6db37f"
-				},
-				{
-					"type": "fill",
-					"name": "78.8mm/h(1.0m~2.0m)",
-					"color": "#498258"
-				},
-				{
-					"type": "fill",
-					"name": "100mm/h(0.15~0.30m)",
-					"color": "#83a4d6"
-				},
-				{
-					"type": "fill",
-					"name": "100mm/h(0.30m~1.0m",
-					"color": "#6386ba"
-				},
-				{
-					"type": "fill",
-					"name": "100mm/h(1.0m~2.0m)",
-					"color": "#28497a"
-				},
-				{
-					"type": "fill",
-					"name": "130mm/h(0.15m~0.3m)",
-					"color": "#decb6a"
-				},
-				{
-					"type": "fill",
-					"name": "130mm/h(0.3m~1.0m)",
-					"color": "#c7b458"
-				},
-				{
-					"type": "fill",
-					"name": "130mm/h(1.0m~2.0m)",
-					"color": "#bda428"
-				}
-			]
-		},
 		"153": {
 			"id": 153,
 			"index": "daycare-station",
 			"name": "托育中心",
 			"source": "社會局",
 			"chart_config": {
-				"types": ["TreemapChart"],
+				"types": ["ColumnChart"],
 				"map_filter": [
 					"機構類型",
 					["居家托育服務中心", "社區公共托育家園"]
 				],
-				"unit": "處"
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"unit": "處",
+				"color": ["#CEBDEF", "#E6DDF7", "#9572DC"]
 			},
 			"map_config": [
 				{
 					"index": "daycare-station",
-					"type": "symbol",
+					"type": "cluster",
 					"title": "托育中心",
 					"icon": "triangle_green",
 					"property": [
@@ -4364,7 +4117,27 @@
 						{ "key": "機構名稱", "name": "機構名稱" },
 						{ "key": "地址", "name": "地址" },
 						{ "key": "電話", "name": "電話" }
-					]
+					],
+					"cluster": {
+						"cluster": true
+					},
+					"filter": ["has", "point_count"],
+					"paint": {
+						"circle-color": [
+							"step",
+							["get", "point_count"],
+							"#51bbd6",
+							5,
+							"#f1f075"
+						],
+						"circle-radius": [
+							"step",
+							["get", "point_count"],
+							20,
+							5,
+							30
+						]
+					}
 				}
 			],
 			"links": [
@@ -4398,8 +4171,18 @@
 					"大安區",
 					"文山區"
 				],
+				"color": ["#BDD7EE", "#E9BDCF"],
 				"unit": "人"
-			}
+			},
+			"history_data": true,
+			"map_config": [
+				{
+					"index": "newborn_district",
+					"type": "fill",
+					"title": "新生兒分布",
+					"property": [{ "key": "total", "name": "新生人口" }]
+				}
+			]
 		},
 		"155": {
 			"id": 155,
@@ -4409,7 +4192,7 @@
 			"chart_config": {
 				"types": ["BarChart", "DistrictChart"],
 				"unit": "處",
-				"color": ["#6baef2"]
+				"color": ["#FBAB69"]
 			},
 			"map_config": [
 				{
@@ -4426,17 +4209,79 @@
 				}
 			]
 		},
-		"156": {
-			"id": 156,
-			"index": "newborn-district-statistics",
-			"name": "新生兒統計(行政區)",
-			"source": "民政局",
+		"157": {
+			"id": 157,
+			"index": "fertility-rate",
+			"name": "婦女生育率",
 			"chart_config": {
-				"types": ["ColumnChart"],
-				"unit": "人"
-			},
-			"update_freq": 1,
-			"update_freq_unit": "month"
+				"types": ["MixedChart"],
+				"group": "fertility-rate",
+				"color": ["#C5E1A5", "#ADED64", "#7BB661"],
+				"chart_type": {
+					"總生育率": "column",
+					"育齡婦女一般生育率": "column",
+					"有偶婦女一般生育率": "column",
+					"台北市年平均物價指數": "line",
+					"全台灣年平均物價指數": "line"
+				},
+				"categories": [
+					"103年",
+					"104年",
+					"105年",
+					"106年",
+					"107年",
+					"108年",
+					"109年",
+					"110年",
+					"111年",
+					"112年"
+				],
+				"unit": ""
+			}
+		},
+		"158": {
+			"id": 158,
+			"index": "newborn-quit",
+			"name": "因生育而離職之變化率",
+			"source": "",
+			"chart_config": {
+				"types": ["TimelineStackedChart"],
+				"unit": "%"
+			}
+		},
+		"159": {
+			"id": 159,
+			"index": "district-cost",
+			"name": "托育中心費用級距",
+			"source": "",
+			"chart_config": {
+				"types": ["StackBarChart"],
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"unit": "間",
+				"dataLabels": {},
+				"color": ["#FFFFCC",
+				"#e7d198",
+				"#d1a26c",
+				"#b9734a",
+				"#9f4333",
+				"#800026"],
+				"legend": {
+					"show": true
+				}
+			}
 		}
 	}
 }

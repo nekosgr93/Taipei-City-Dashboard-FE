@@ -12,7 +12,10 @@ const chartOptions = ref({
 	chart: {
 		stacked: true,
 	},
-	colors: ["#008FFB", "#FF4560"],
+	legend: {
+		inverseOrder: true,
+	},
+	colors: props.chart_config.color,
 	plotOptions: {
 		bar: {
 			horizontal: true,

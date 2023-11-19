@@ -37,6 +37,8 @@ import HeatmapChart from "./components/charts/HeatmapChart.vue";
 import PolarAreaChart from "./components/charts/PolarAreaChart.vue"
 import BidirectionalBarChart from './components/charts/BidirectionalBarChart.vue'
 import TotalDonutChart from './components/charts/TotalDonutChart.vue'
+import MixedChart from './components/charts/MixedChart.vue'
+import StackBarChart from './components/charts/StackBarChart.vue'
 
 
 const app = createApp(App);
@@ -63,5 +65,8 @@ app.component("HeatmapChart", HeatmapChart);
 app.component("PolarAreaChart", PolarAreaChart)
 app.component("BidirectionalBarChart", BidirectionalBarChart)
 app.component("TotalDonutChart", TotalDonutChart)
+app.component("MixedChart", MixedChart)
+app.component("StackBarChart", StackBarChart)
+
 
 app.mount("#app");

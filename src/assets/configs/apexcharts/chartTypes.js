@@ -13,5 +13,7 @@ export const chartTypes = {
 	HeatmapChart: "熱力圖",
 	PolarAreaChart: "極地圖",
 	BidirectionalBarChart: "旋風圖",
-	TotalDonutChart: "綜合圓餅圖"
+	TotalDonutChart: "綜合圓餅圖",
+	MixedChart: "混合圖",
+	StackBarChart: "級距長條圖",
 };
