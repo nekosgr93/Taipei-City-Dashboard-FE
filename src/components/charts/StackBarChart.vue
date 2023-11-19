@@ -26,6 +26,7 @@ const chartOptions = ref({
 					style: {
 						fontSize: "13px",
 						fontWeight: 900,
+						color: '#ffffff'
 					},
 				},
 			},
@@ -74,6 +75,11 @@ const chartOptions = ref({
 		horizontalAlign: "left",
 		offsetX: 40,
 	},
+	dataLabels: {
+		style: {
+			colors: ['#4C4C4C']
+		}
+	}
 });
 
 const chartHeight = computed(() => {
